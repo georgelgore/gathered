@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Deckbuilder</title>
+    <style>
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    width: 140px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: scroll  ;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
+  </head>
+  <body>
+    <h1 class="main">Welcome to Gather'd</h1>
+    <div id="deck-body" class="main">
+      <!-- <h5>Your Deck:</h5> -->
+    </div>
+    <div class="sidenav" id="navbar">
+      <label id="deck-head">Your Decks</label>
+      <ul id="deck-holder"></ul>
+
+      <form  id="deck-creator" action="index.html" method="post">
+        <input type="text" id='deck-input'>
+        <button type="submit" name="button" id="deck-creator-button">New Deck</button>
+      </form>
+
+    </div>
+
+
+    <script src="src/index.js"></script>
+    <script src="src/deck-adapter.js"></script>
+    <script src="src/deck.js"></script>
+    <script src="src/card.js"></script>
+    <script src="src/card-adapter.js"></script>
+    <script src="src/event-handler.js"></script>
+  </body>
+</html>

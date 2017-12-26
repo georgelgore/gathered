@@ -24,6 +24,7 @@ class Deck{
     let input = document.createElement('input')
     // input.value = "Search Here"
     input.id = `input`
+    input.placeholder = 'search cards by name'
     input.type = "text"
     input.dataset.id = this.id
     let h5 = document.createElement("h5");

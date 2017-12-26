@@ -31,6 +31,7 @@ class Card{
     button.type = "submit"
     button.name = "button"
     button.innerHTML = "Add card to deck"
+    button.className = `add-to-deck`
     button.dataset.id = this.id
     button.id = `button-${this.id}`
     a.dataset.id = this.id

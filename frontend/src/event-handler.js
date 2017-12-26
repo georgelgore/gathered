@@ -8,3 +8,50 @@
 //
 //   filteredCards.forEach(card => return card.render())
 // }
+class EventHandler {
+
+  static getCards(event){
+    if(event.target.className == "deck"){
+      let deck = Deck.all.filter(deck => deck.id === parseInt(event.target.dataset.id))
+      deck[0].renderDeck()
+
+
+      document.getElementById(`input`).addEventListener('input', (event) => {
+        let key = event.target.value
+        console.log(key)
+        let filteredCards = Card.all.filter(card => {
+          if (card.name.toLowerCase().includes(key))
+          {
+            return card
+          }
+        })
+        document.getElementById("holder").innerHTML = ""
+        Card.renderAll(filteredCards)
+
+        document.getElementById('holder').addEventListener('click', (event) => {
+          if (event.target.name === 'button'){
+            let deckId =  parseInt(document.getElementById('deck-name').dataset.id)
+            let cardId = parseInt(event.target.dataset.id)
+
+            let deck = Deck.all.filter(deck => deck.id === deckId)[0]
+            let card = Card.all.filter(card => card.id === cardId)[0]
+            deck.cards.push(card)
+            debugger
+          }
+        })
+
+        // let cards =
+      })
+    }
+  }
+
+
+  static renderDecks(){
+    DeckAdapter.getDecks().then(arr => {
+      arr.forEach(obj => {
+        let newDeck = new Deck(obj.name, obj.id)
+        newDeck.render()
+      })
+    })
+  }
+}

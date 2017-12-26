@@ -26,6 +26,11 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 gem 'rest-client'
 gem 'json'
+gem 'mtg_sdk'
+gem 'grape', '>= 0.10.0'
+gem 'kaminari'
+gem 'api-pagination'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

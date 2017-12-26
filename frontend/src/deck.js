@@ -2,6 +2,7 @@ class Deck{
   constructor(name, id){
     this.name = name
     this.id = id
+    this.cards = []
     Deck.all.push(this)
   }
 
@@ -28,6 +29,8 @@ class Deck{
     input.type = "text"
     input.dataset.id = this.id
     let h5 = document.createElement("h5");
+    h5.dataset.id = `${this.id}`
+    h5.id = "deck-name"
     let deck = document.createTextNode(`${this.name}`)
     div.id = `deck-${this.id}`
     div.dataset.id = this.id

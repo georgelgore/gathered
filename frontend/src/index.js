@@ -5,36 +5,15 @@ CardAdapter.getCards().then(arr => {
 })
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
+    EventHandler.renderDecks();
 
-    DeckAdapter.getDecks().then(arr => {
-      arr.forEach(obj => {
-        let newDeck = new Deck(obj.name, obj.id)
-        newDeck.render()
-      })
-    })
 
+    // document.getElementById('holder').addEventListener((event) => {
+    //   debugger
+    // })
 
     document.getElementById("navbar").addEventListener("click", (event) => {
-      if(event.target.className == "deck"){
-        let deck = Deck.all.filter(deck => deck.id === parseInt(event.target.dataset.id))
-        deck[0].renderDeck()
-
-
-        document.getElementById(`input`).addEventListener('input', (event) => {
-          let key = event.target.value
-          console.log(key)
-
-          let filteredCards = Card.all.filter(card => {
-            if (card.name.toLowerCase().includes(key))
-            {
-              return card
-            }
-          })
-          document.getElementById("holder").innerHTML = ""
-          Card.renderAll(filteredCards)
-          // let cards =
-        })
-      }
+      EventHandler.getCards(event);
     })
 
     document.getElementById("deck-creator-button").addEventListener("click", (event) =>{

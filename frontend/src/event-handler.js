@@ -12,9 +12,15 @@ class EventHandler {
 
   static getCards(event){
     if(event.target.className == "deck"){
-      let deck = Deck.all.filter(deck => deck.id === parseInt(event.target.dataset.id))
-      deck[0].renderDeck()
+      let deck = Deck.all.filter(deck => deck.id === parseInt(event.target.dataset.id))[0]
+      deck.renderDeck()
+      let cards = DeckCard.all.filter(x => x.deckId === deck.id)
+      cards.forEach(deckcard => {
+        let cardId = deckcard.cardId
 
+        let card = Card.all.filter(card => card.id === cardId)[0]
+        card.renderCardFromDeck()
+      })
 
       document.getElementById(`input`).addEventListener('input', (event) => {
         let key = event.target.value
@@ -27,6 +33,7 @@ class EventHandler {
         })
         document.getElementById("holder").innerHTML = ""
         Card.renderAll(filteredCards)
+        })
 
         document.getElementById('holder').addEventListener('click', (event) => {
           if (event.target.name === 'button'){
@@ -35,15 +42,16 @@ class EventHandler {
 
             let deck = Deck.all.filter(deck => deck.id === deckId)[0]
             let card = Card.all.filter(card => card.id === cardId)[0]
-            deck.cards.push(card)
             debugger
+            card.renderCardFromDeck()
+            DeckCardAdapter.postDeckCard(deckId, cardId)
           }
         })
 
-        // let cards =
-      })
+
     }
   }
+
 
 
   static renderDecks(){

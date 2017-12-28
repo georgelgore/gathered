@@ -59,9 +59,21 @@ class Card{
     }
   }
 
-  // def manaConverter(){
-  //   case this.color1
-  // }
+  renderCardFromDeck(){
+    let parent = document.getElementById("card-display")
+
+    let li = document.createElement('li')
+    li.id = `list-${this.cardId}`
+
+    let img = document.createElement('img')
+    img.src = this.imageUrl
+    img.align = "middle"
+    img.width = 200
+    img.height = 250
+
+    li.appendChild(img)
+    parent.appendChild(li)
+  }
 }
 
 

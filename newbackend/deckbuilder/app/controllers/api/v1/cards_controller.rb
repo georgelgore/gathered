@@ -6,6 +6,6 @@ class Api::V1::CardsController < ApplicationController
     #
     # @cards << Card.all[10001..20000]
     # @cards << Card.all[20001..31000]
-    paginate json: @cards, per_page: 5000
+    paginate json: @cards, per_page: 500
   end
 end

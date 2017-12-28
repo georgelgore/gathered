@@ -29,6 +29,8 @@ class Deck{
     input.type = "text"
     input.dataset.id = this.id
     let h5 = document.createElement("h5");
+    let cardDisplay = document.createElement("ul");
+    cardDisplay.id = "card-display"
     h5.dataset.id = `${this.id}`
     h5.id = "deck-name"
     let deck = document.createTextNode(`${this.name}`)
@@ -39,6 +41,7 @@ class Deck{
 
     h5.appendChild(deck)
     div.appendChild(h5)
+    div.appendChild(cardDisplay)
     div.appendChild(br)
     div.appendChild(input)
     div.appendChild(br)

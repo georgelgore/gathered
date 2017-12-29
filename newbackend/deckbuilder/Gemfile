@@ -29,7 +29,6 @@ gem 'json'
 gem 'mtg_sdk'
 gem 'grape', '>= 0.10.0'
 gem 'kaminari'
-gem 'api-pagination'
 
 
 group :development, :test do

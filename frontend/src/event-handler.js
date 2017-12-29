@@ -1,13 +1,3 @@
-// function handleSearchInput(event) {
-//   //event is the "input" event
-//   const searchTerm = event.target.value.trim(); //grab whatever the user typed in and .trim() off any extra spaces
-//
-//   const filteredCards = Card.all.filter(card =>
-//     card.name.includes(searchTerm)
-//   ); //grab a filtered list of pokemon that match the user's search term
-//
-//   filteredCards.forEach(card => return card.render())
-// }
 class EventHandler {
 
   static getCards(event){
@@ -17,22 +7,30 @@ class EventHandler {
       let cards = DeckCard.all.filter(x => x.deckId === deck.id)
       cards.forEach(deckcard => {
         let cardId = deckcard.cardId
-
-        let card = Card.all.filter(card => card.id === cardId)[0]
-        card.renderCardFromDeck()
+        let cardreq = CardAdapter.getCardById(cardId).then(arr => {
+          let thing = arr[0]
+          let card = new Card(thing.cmc, thing.color1, thing.color2, thing.imageUrl, thing.manaCost, thing['name'], thing.power, thing.subtype1, thing.subtype2, thing['text'], thing.toughness, thing.types, thing['id'])
+          card.renderCardFromDeck()
+        })
       })
 
       document.getElementById(`input`).addEventListener('input', (event) => {
         let key = event.target.value
         console.log(key)
-        let filteredCards = Card.all.filter(card => {
-          if (card.name.toLowerCase().includes(key))
-          {
-            return card
-          }
+        CardAdapter.getSearchCards(key, 1).then(arr => {
+          arr.forEach(card => {
+            let newCard = new Card(card.cmc, card.color1, card.color2, card.imageUrl, card.manaCost, card['name'], card.power, card.subtype1, card.subtype2, card['text'], card.toughness, card.types, card['id'])
+            newCard.render()
+          })
         })
+
+        // let filteredCards = Card.all.filter(card => {
+        //   if (card.name.toLowerCase().includes(key))
+        //   {
+        //     return card
+        //   }
+        // })
         document.getElementById("holder").innerHTML = ""
-        Card.renderAll(filteredCards)
         })
 
         document.getElementById('holder').addEventListener('click', (event) => {

@@ -16,7 +16,7 @@ class Card{
     Card.all.push(this);
   }
 
-  static renderAll(cards){
+  static inputAll(cards){
     cards.forEach(card => {
       card.render()
     })
@@ -55,7 +55,7 @@ class Card{
     a.appendChild(br)
     a.appendChild(button)
 
-    document.getElementById('holder').appendChild(a)
+    document.getElementById('deck-right').appendChild(a)
     }
   }
 

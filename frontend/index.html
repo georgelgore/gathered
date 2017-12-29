@@ -44,9 +44,10 @@ body {
   text-align: center;
 }
 
-.center {
-  margin: auto;
-  width: 40%;
+.right {
+  position: absolute;
+  right: 90px;
+  width: 300px;
   padding: 10px;
 }
 
@@ -60,51 +61,7 @@ body {
   </head>
   <body>
     <h1 class="header">Welcome to Gathered</h1>
-    <div class="center" >
-      <h2>Search For Cards</h2>
-      <form  id="all-searcher" action="index.html" method="post">
-      <!-- <input type="text" placeholder="name"> -->
-      <select>
-        <option value="Color">Color</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-      </select>
-      <select>
-        <option value="cmc">Converted Mana Cost</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <select >
-        <option value="attack">attack</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-      </select>
-      <select >
-        <option value="defense">defense</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-      </select>
-      <input type="submit" name="submit" value="submit">
-      </form>
-    </div>
+    <div id="deck-right" class="right"></div>
 
     <div id="deck-body" class="main"> </div>
     <div class="sidenav" id="navbar">

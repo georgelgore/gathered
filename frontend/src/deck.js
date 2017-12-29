@@ -20,9 +20,12 @@ class Deck{
   renderDeck(){
     document.getElementById('deck-body').innerHTML = ""
 
+    let rightSide = document.getElementById('deck-right')
     let div = document.createElement("div");
     let br = document.createElement("br");
     let input = document.createElement('input')
+    let h3 = document.createElement("h3");
+    h3.innerText = "Go Fish!"
     // input.value = "Search Here"
     input.id = `input`
     input.placeholder = 'search cards by name'
@@ -43,7 +46,8 @@ class Deck{
     div.appendChild(h5)
     div.appendChild(cardDisplay)
     div.appendChild(br)
-    div.appendChild(input)
+    rightSide.appendChild(h3)
+    rightSide.appendChild(input)
     div.appendChild(br)
     div.appendChild(cardHolder)
     document.getElementById('deck-body').appendChild(div)

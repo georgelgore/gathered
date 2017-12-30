@@ -24,8 +24,11 @@ class Card{
 
   render(){
     if (this.imageUrl){
+      if (document.getElementById('div-holder')){
+        document.getElementById('div-holder').innerHTML = ""
+      }
     // document.getElementById('deck-1').innerHTML = ""
-    let a = document.createElement('a')
+    let div = document.createElement('div')
     let br = document.createElement('br')
     let button = document.createElement("button");
     button.type = "submit"
@@ -34,7 +37,7 @@ class Card{
     button.className = `add-to-deck`
     button.dataset.id = this.id
     button.id = `button-${this.id}`
-    a.dataset.id = this.id
+    div.dataset.id = this.id
     let img = document.createElement('img')
     img.src = this.imageUrl
     img.align = "middle"
@@ -45,17 +48,18 @@ class Card{
     let name = document.createTextNode(`${this.name}`)
     let color1 = document.createTextNode(`${this.color1}`)
 
+    div.id = "div-holder"
     h5.appendChild(name)
     h6.appendChild(color1)
-    a.appendChild(h5)
-    a.appendChild(h6)
-    a.appendChild(br)
-    a.appendChild(br)
-    a.appendChild(img)
-    a.appendChild(br)
-    a.appendChild(button)
+    div.appendChild(h5)
+    div.appendChild(h6)
+    div.appendChild(br)
+    div.appendChild(br)
+    div.appendChild(img)
+    div.appendChild(br)
+    div.appendChild(button)
 
-    document.getElementById('deck-right').appendChild(a)
+    document.getElementById('deck-right').appendChild(div)
     }
   }
 

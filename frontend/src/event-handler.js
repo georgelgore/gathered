@@ -14,24 +14,28 @@ class EventHandler {
         })
       })
 
-      document.getElementById(`input`).addEventListener('input', (event) => {
-        let key = event.target.value
-        console.log(key)
-        CardAdapter.getSearchCards(key, 1).then(arr => {
-          arr.forEach(card => {
-            let newCard = new Card(card.cmc, card.color1, card.color2, card.imageUrl, card.manaCost, card['name'], card.power, card.subtype1, card.subtype2, card['text'], card.toughness, card.types, card['id'])
-            newCard.render()
+      document.getElementById(`search-form`).addEventListener('click', (event) => {
+        if (event.target.id === "name-searcher"){
+          event.preventDefault()
+          let key = document.getElementById("input1").value
+          let encodedKey = encodeURI(key)
+          console.log(encodedKey)
+          CardAdapter.getSearchCards(encodedKey, 1).then(arr => {
+            arr.forEach(card => {
+              let newCard = new Card(card.cmc, card.color1, card.color2, card.imageUrl, card.manaCost, card['name'], card.power, card.subtype1, card.subtype2, card['text'], card.toughness, card.types, card['id'])
+              newCard.render()
+            })
           })
-        })
-
-        // let filteredCards = Card.all.filter(card => {
-        //   if (card.name.toLowerCase().includes(key))
-        //   {
-        //     return card
-        //   }
-        // })
+        }
         document.getElementById("holder").innerHTML = ""
         })
+
+
+        document.getElementById(`search-form`).addEventListener('keydown', (event) => {
+          if (event.target.id === "input2" || 'power' || "toughness"){
+          // debugger
+          }
+          })
 
         document.getElementById('holder').addEventListener('click', (event) => {
           if (event.target.name === 'button'){

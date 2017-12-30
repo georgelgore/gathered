@@ -14,7 +14,7 @@ class EventHandler {
         })
       })
 
-      document.getElementById(`search-form`).addEventListener('click', (event) => {
+      document.getElementById(`search-by-name`).addEventListener('click', (event) => {
         if (event.target.id === "name-searcher"){
           event.preventDefault()
           let key = document.getElementById("input1").value
@@ -31,10 +31,19 @@ class EventHandler {
         })
 
 
-        document.getElementById(`search-form`).addEventListener('keydown', (event) => {
-          if (event.target.id === "input2" || 'power' || "toughness"){
-          // debugger
-          }
+        document.getElementById(`search-by-more`).addEventListener('click', (event) => {
+          event.preventDefault()
+          let type = document.getElementById('type').value
+          let color = document.getElementById('mana-searcher').value
+          let power = document.getElementById('power').value
+          let toughness = document.getElementById('toughness').value
+
+         CardAdapter.getCardsBySearch(type,power,toughness,color).then(arr => {
+            arr.forEach(card => {
+              let newCard = new Card(card.cmc, card.color1, card.color2, card.imageUrl, card.manaCost, card['name'], card.power, card.subtype1, card.subtype2, card['text'], card.toughness, card.types, card['id'])
+              newCard.render()
+            })
+          })
           })
 
         document.getElementById('holder').addEventListener('click', (event) => {

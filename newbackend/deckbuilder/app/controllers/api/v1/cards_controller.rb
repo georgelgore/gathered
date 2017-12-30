@@ -6,7 +6,15 @@ class Api::V1::CardsController < ApplicationController
         @cards = Kaminari.paginate_array(Card.all.select{|card| card.name.include?(params[:name])})
       render json: @cards
       return
-    elsif params[:name]
+    elsif params[:types]
+      @cards = Kaminari.paginate_array(Card.all.select do |card|
+        card.types == params[:types] &&
+        card.color1 == params[:color] &&
+        card.power == params[:power] &&
+        card.toughness == params[:toughness]
+      end)
+        render json: @cards
+        return
     elsif params[:id]
       @cards = Card.all.select{|card| card.id == params[:id].to_i}
       render json: @cards

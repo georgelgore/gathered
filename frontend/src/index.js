@@ -12,8 +12,11 @@ DeckCardAdapter.getDeckCards().then(arr => {
 
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
-    EventHandler.renderDecks();
 
+
+    document.getElementById("deck-button").addEventListener("click", (event) => {
+      EventHandler.renderDeckArea();
+      EventHandler.renderDecks();
 
 
     document.getElementById("navbar").addEventListener("click", (event) => {
@@ -28,5 +31,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         newDeck.render()
       })
       // console.log(event)
+    })
     })
   });

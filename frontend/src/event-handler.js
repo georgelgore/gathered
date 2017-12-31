@@ -64,6 +64,18 @@ class EventHandler {
   }
 
 
+  static renderDeckArea(){
+    document.getElementById("sidenav-holder").innerHTML +=
+`    <div class="sidenav" id="navbar">
+                <div id="deck-holder"></div><br>
+
+                <form  id="deck-creator" action="index.html" method="post">
+                  <input type="text" id='deck-input'>
+                  <button type="submit" name="button" id="deck-creator-button">New Deck</button>
+                </form>
+
+            </div>`
+  }
 
   static renderDecks(){
     DeckAdapter.getDecks().then(arr => {

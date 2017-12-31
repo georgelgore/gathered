@@ -8,6 +8,7 @@ class Deck{
 
   render(){
     let div = document.createElement("div");
+    div.className += "jumbotron"
     let deck = document.createTextNode(`${this.name}`)
     div.className = "deck"
     div.id = `deck-${this.id}`
@@ -18,11 +19,13 @@ class Deck{
   }
 
   renderDeck(){
+    document.getElementById('deck-body').innerHTML = ""
     document.getElementById('deck-right').innerHTML = ""
     let rightSide = document.getElementById('deck-right')
 
 
     let div = document.createElement("div");
+    div.className += "jumbotron"
     let br = document.createElement("br");
     let form = document.createElement("form")
     let form2 = document.createElement("form")
@@ -164,6 +167,7 @@ class Deck{
     form2.appendChild(power)
     form2.appendChild(toughness)
     form2.appendChild(button2)
+    form2.appendChild(br)
     rightSide.appendChild(form)
     rightSide.appendChild(form2)
     div.appendChild(br)

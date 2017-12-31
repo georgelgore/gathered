@@ -59,7 +59,7 @@ class Card{
     div.appendChild(br)
     div.appendChild(button)
 
-    document.getElementById('deck-right').appendChild(div)
+    document.getElementById('card-holder').appendChild(div)
     }
   }
 

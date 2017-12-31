@@ -22,8 +22,17 @@ class Deck{
     document.getElementById('deck-body').innerHTML = ""
     document.getElementById('deck-right').innerHTML = ""
     let rightSide = document.getElementById('deck-right')
-
-
+    rightSide.style = "jumbotron"
+    let div1 = document.createElement("div");
+    div1.className += "jumbotron"
+    div1.id = "second-form"
+    let div2 = document.createElement("div");
+    div2.className += "jumbotron"
+    div2.id = "second-form"
+    let div3 = document.createElement("div");
+    div3.className += "jumbotron"
+    div3.id = "card-holder"
+    div3.style = `background-color: rgba(238,238,238,0.0);`
     let div = document.createElement("div");
     div.className += "jumbotron"
     let br = document.createElement("br");
@@ -145,6 +154,7 @@ class Deck{
     h5.id = "deck-name"
     let deck = document.createTextNode(`${this.name}`)
     div.id = `deck-${this.id}`
+    div.style = `background-color: rgba(238,238,238,0.0);`
     div.dataset.id = this.id
     let cardHolder = document.createElement("div");
     cardHolder.id = "holder"
@@ -168,8 +178,12 @@ class Deck{
     form2.appendChild(toughness)
     form2.appendChild(button2)
     form2.appendChild(br)
-    rightSide.appendChild(form)
-    rightSide.appendChild(form2)
+    div2.innerHTML = `<h3>Filter Cards:</h3>`
+    div2.appendChild(form2)
+    div1.appendChild(form)
+    rightSide.appendChild(div1)
+    rightSide.appendChild(div2)
+    rightSide.appendChild(div3)
     div.appendChild(br)
     div.appendChild(cardHolder)
 

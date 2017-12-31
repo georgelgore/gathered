@@ -20,10 +20,11 @@ body {
     width: 160px;
     position: fixed;
     z-index: 1;
-    top: 80px;
+    top: 225px;
     left: 10px;
-    background-color: rgba(238,238,238,0.5);
+    background-color: rgba(238,238,238,0.9);
     overflow-x: scroll  ;
+    padding-left: 5px 0;
     padding: 8px 0;
 }
 
@@ -66,8 +67,14 @@ body {
       <div class="jumbotron" id="holder">
 
         <h1 class="header">Welcome to Gathered</h1>
+        <nav class="navbar navbar-default center" >
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li ><a id="deck-button">Your Decks</a></li>
+            </ul>
+          </div>
+        </nav>
         <div id="deck-right" class="right"></div>
-
         <div id="deck-body" class="main"> </div>
 
         <div id="sidenav-holder">
@@ -75,13 +82,6 @@ body {
         </div>
 
 
-        <nav class="navbar navbar-default center" >
-        <div class="container-fluid">
-          <ul class="nav navbar-nav">
-            <li ><a id="deck-button">Your Decks</a></li>
-          </ul>
-        </div>
-      </nav>
     </div>
 
   </div>

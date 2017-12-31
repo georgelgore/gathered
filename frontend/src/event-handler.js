@@ -16,24 +16,28 @@ class EventHandler {
 
       document.getElementById(`search-by-name`).addEventListener('click', (event) => {
         if (event.target.id === "name-searcher"){
+          // document.getElementById("holder").innerHTML = ""
           event.preventDefault()
           let key = document.getElementById("input1").value
           let encodedKey = encodeURI(key)
           console.log(encodedKey)
           CardAdapter.getSearchCards(encodedKey, 1).then(arr => {
+            // let new1 = [arr.shift()]
             arr.forEach(card => {
               let newCard = new Card(card.cmc, card.color1, card.color2, card.imageUrl, card.manaCost, card['name'], card.power, card.subtype1, card.subtype2, card['text'], card.toughness, card.types, card['id'])
               newCard.render()
             })
           })
         }
-        document.getElementById("holder").innerHTML = ""
+        else {
+          event.preventDefault()
+        }
         })
 
 
         document.getElementById(`search-by-more`).addEventListener('click', (event) => {
           event.preventDefault()
-          let type = document.getElementById('type').value
+          let type = document.getElementById('types-searcher').value
           let color = document.getElementById('mana-searcher').value
           let power = document.getElementById('power').value
           let toughness = document.getElementById('toughness').value
@@ -65,11 +69,13 @@ class EventHandler {
 
 
   static renderDeckArea(){
+    document.getElementById("sidenav-holder").innerHTML = ""
     document.getElementById("sidenav-holder").innerHTML +=
 `    <div class="sidenav" id="navbar">
+                <h4 id="deck-head" >Your Decks:</h4>
                 <div id="deck-holder"></div><br>
 
-                <form  id="deck-creator" action="index.html" method="post">
+                <form  style="padding-left: 5px 0;" id="deck-creator" action="index.html" method="post">
                   <input type="text" id='deck-input'>
                   <button type="submit" name="button" id="deck-creator-button">New Deck</button>
                 </form>

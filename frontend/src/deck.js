@@ -33,8 +33,6 @@ class Deck{
     div3.className += "jumbotron"
     div3.id = "card-holder"
     div3.style = `background-color: rgba(238,238,238,0.0);`
-    let div = document.createElement("div");
-    div.className += "jumbotron"
     let br = document.createElement("br");
     let form = document.createElement("form")
     let form2 = document.createElement("form")
@@ -147,12 +145,25 @@ class Deck{
     input1.placeholder = 'search cards by name'
     input1.type = "text"
     input1.dataset.id = this.id
+
     let h5 = document.createElement("h5");
-    let cardDisplay = document.createElement("ul");
-    cardDisplay.id = "card-display"
+    let container = document.createElement("div");
+
+    container.innerHTML = `
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" id="image-holder">
+        </div>
+        <!-- Left and right controls -->
+
+      </div>
+    </div>
+    `
     h5.dataset.id = `${this.id}`
     h5.id = "deck-name"
     let deck = document.createTextNode(`${this.name}`)
+    let div = document.createElement("div");
+    div.className += "jumbotron"
     div.id = `deck-${this.id}`
     div.style = `background-color: rgba(238,238,238,0.0);`
     div.dataset.id = this.id

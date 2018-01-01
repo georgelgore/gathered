@@ -148,16 +148,14 @@ class Deck{
 
     let h5 = document.createElement("h5");
     let container = document.createElement("div");
-
+    container.className = 'container'
     container.innerHTML = `
-    <div class="container">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" id="image-holder">
         </div>
         <!-- Left and right controls -->
 
       </div>
-    </div>
     `
     h5.dataset.id = `${this.id}`
     h5.id = "deck-name"
@@ -172,7 +170,7 @@ class Deck{
 
     h5.appendChild(deck)
     div.appendChild(h5)
-    div.appendChild(cardDisplay)
+    div.appendChild(container)
     div.appendChild(br)
 
     form.appendChild(h3)

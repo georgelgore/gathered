@@ -64,21 +64,19 @@ class Card{
   }
 
   renderCardFromDeck(){
-    let parent = document.getElementById("card-display")
-
-    let li = document.createElement('li')
-    li.id = `list-${this.cardId}`
+    let div = document.createElement('div')
+    div.id = `list-${this.id}`
+    div.className = "item"
 
     let img = document.createElement('img')
     img.src = this.imageUrl
-    img.align = "middle"
-    img.width = 200
-    img.height = 250
+    // img.align = "middle"
+    img.width = 223
+    img.height = 311
 
-    li.appendChild(img)
-    parent.appendChild(li)
+    div.appendChild(img)
+    document.getElementById("image-holder").appendChild(div)
   }
 }
-
 
 Card.all = []

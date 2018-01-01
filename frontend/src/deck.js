@@ -150,8 +150,8 @@ class Deck{
     let container = document.createElement("div");
     container.className = 'container'
     container.innerHTML = `
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" id="image-holder">
+      <div id="myCarousel" className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner" id="image-holder">
         </div>
         <!-- Left and right controls -->
 

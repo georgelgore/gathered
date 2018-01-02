@@ -44,15 +44,11 @@ class Card{
     img.width = 200
     img.height = 250
     let h5 = document.createElement('h5')
-    let h6 = document.createElement('h6')
     let name = document.createTextNode(`${this.name}`)
-    let color1 = document.createTextNode(`${this.color1}`)
 
     div.id = "div-holder"
     h5.appendChild(name)
-    h6.appendChild(color1)
     div.appendChild(h5)
-    div.appendChild(h6)
     div.appendChild(br)
     div.appendChild(br)
     div.appendChild(img)

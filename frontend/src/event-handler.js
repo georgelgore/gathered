@@ -35,7 +35,7 @@ class EventHandler {
         })
 
 
-        document.getElementById(`search-by-more`).addEventListener('click', (event) => {
+        document.getElementById(`other-searcher`).addEventListener('click', (event) => {
           event.preventDefault()
           let type = document.getElementById('types-searcher').value
           let color = document.getElementById('mana-searcher').value

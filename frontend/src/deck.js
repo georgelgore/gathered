@@ -93,10 +93,10 @@ class Deck{
     types4.text = "Instant";
     types.appendChild(types4)
 
-    let types5 = document.createElement('option')
-    types5.value = "Land";
-    types5.text = "Land";
-    types.appendChild(types5)
+    // let types5 = document.createElement('option')
+    //   types5.value = "Land";
+    // types5.text = "Land";
+    // types.appendChild(types5)
 
     let types6 = document.createElement('option')
     types6.value = "Sorcery";
@@ -152,7 +152,7 @@ class Deck{
     container.style = "width: 60, padding-right: 30px%;"
     container.innerHTML =
     `
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style= "padding-right: 30px%;">
+      <div id="myCarousel" style= "padding-right: 100px;">
         <div class="carousel-inner" id="image-holder">
         </div>
       </div>

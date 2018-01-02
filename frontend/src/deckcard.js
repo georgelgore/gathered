@@ -12,6 +12,7 @@ class DeckCard{
     let div = document.createElement('div')
     div.id = `list-${this.id}`
     div.class = "item"
+    div.style="padding-right: 100px;"
     let button = document.createElement('button')
     button.innerText = "X"
     button.id = `button-${this.id}`

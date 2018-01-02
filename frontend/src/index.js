@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let newDeck = new Deck(arr.name, arr.id)
         newDeck.render()
       })
-      // console.log(event)
     })
 
   })

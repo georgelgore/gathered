@@ -11,7 +11,7 @@ class Deck{
     div.className += "jumbotron"
     let deck = document.createTextNode(`${this.name}`)
     div.className = "deck"
-    div.id = `deck-${this.id}`
+    div.id = `deckDisplay-${this.id}`
     div.dataset.id = this.id
     div.appendChild(deck)
 
@@ -149,14 +149,15 @@ class Deck{
     let h5 = document.createElement("h5");
     let container = document.createElement("div");
     container.className = 'container'
-    container.innerHTML = `
-      <div id="myCarousel" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner" id="image-holder">
+    container.style = "width: 60, padding-right: 30px%;"
+    container.innerHTML =
+    `
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style= "padding-right: 30px%;">
+        <div class="carousel-inner" id="image-holder">
         </div>
-        <!-- Left and right controls -->
-
       </div>
     `
+
     h5.dataset.id = `${this.id}`
     h5.id = "deck-name"
     let deck = document.createTextNode(`${this.name}`)

@@ -34,7 +34,7 @@ class Card{
     button.type = "submit"
     button.name = "button"
     button.innerHTML = "Add card to deck"
-    button.className = `add-to-deck`
+    button.class = `add-to-deck`
     button.dataset.id = this.id
     button.id = `button-${this.id}`
     div.dataset.id = this.id
@@ -65,16 +65,21 @@ class Card{
 
   renderCardFromDeck(){
     let div = document.createElement('div')
+    div.style = "width: 50%;"
     div.id = `list-${this.id}`
-    div.className = "item"
+    div.class = "item"
+    let button = document.createElement('button')
+    button.innerText = "X"
+    button.id = `button-${this.id}`
+    button.dataset.id = `${this.id}`
 
     let img = document.createElement('img')
     img.src = this.imageUrl
     // img.align = "middle"
     img.width = 223
     img.height = 311
-
     div.appendChild(img)
+    div.appendChild(button)
     document.getElementById("image-holder").appendChild(div)
   }
 }

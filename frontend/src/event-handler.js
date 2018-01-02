@@ -10,7 +10,7 @@ class EventHandler {
         let cardreq = CardAdapter.getCardById(cardId).then(arr => {
           let thing = arr[0]
           let card = new Card(thing.cmc, thing.color1, thing.color2, thing.imageUrl, thing.manaCost, thing['name'], thing.power, thing.subtype1, thing.subtype2, thing['text'], thing.toughness, thing.types, thing['id'])
-          card.renderCardFromDeck()
+          deckcard.renderDeckCardFromDeck()
         })
       })
 
@@ -57,12 +57,22 @@ class EventHandler {
 
             let deck = Deck.all.filter(deck => deck.id === deckId)[0]
             let card = Card.all.filter(card => card.id === cardId)[0]
-            debugger
-            card.renderCardFromDeck()
-            DeckCardAdapter.postDeckCard(deckId, cardId)
+            if (card){
+              card.renderCardFromDeck()
+              DeckCardAdapter.postDeckCard(deckId, cardId)
+            }
+
           }
         })
 
+      document.getElementById('image-holder').addEventListener('click', (event) => {
+          if (event.target.id.includes("button")){
+            // let cardId = parseInt(event.target.dataset.id)
+            let deckCard = parseInt(event.target.dataset.id)
+            DeckCardAdapter.deleteDeckCard(`${deckCard}`)
+            document.getElementById(`list-${deckCard}`).innerHTML = ''
+          }
+          })
 
     }
   }

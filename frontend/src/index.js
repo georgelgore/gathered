@@ -6,7 +6,7 @@ CardAdapter.getCards().then(arr => {
 
 DeckCardAdapter.getDeckCards().then(arr => {
   arr.forEach( obj => {
-    let newDeckCard = new DeckCard(obj.deck_id, obj.card_id);
+    let newDeckCard = new DeckCard(obj.deck_id, obj.card_id, obj['id']);
   })
 })
 
@@ -22,6 +22,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("navbar").addEventListener("click", (event) => {
       EventHandler.getCards(event);
     })
+    document.getElementById("deck-holder").addEventListener("dblclick", (event) => {
+      if (event.target.className === 'deck'){
+        let deckId = parseInt(event.target.dataset.id)
+        DeckAdapter.deleteDeck(`${deckId}`)
+        document.getElementById(event.target.id).innerHTML = ""
+        document.getElementById("deck-name").innerHTML = ""
+
+      }
+    })
 
     document.getElementById("deck-creator-button").addEventListener("click", (event) =>{
       event.preventDefault()
@@ -32,5 +41,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       })
       // console.log(event)
     })
-    })
+
+  })
+
+
+
   });

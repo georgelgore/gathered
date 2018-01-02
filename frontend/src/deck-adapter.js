@@ -15,5 +15,10 @@ class DeckAdapter{
     }).then(resp => resp.json())
   }
 
+  static deleteDeck(id){
+    return fetch(`http://localhost:3000/api/v1/decks/${id}`, {method :'delete'})
+  }
+
+
 
   }

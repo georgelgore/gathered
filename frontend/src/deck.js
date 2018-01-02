@@ -153,7 +153,7 @@ class Deck{
     container.innerHTML =
     `
       <div id="myCarousel" style= "padding-right: 100px;">
-        <div class="carousel-inner" id="image-holder">
+        <div class="carousel-inner" id="image-holder" style= "padding-right: 100px;">
         </div>
       </div>
     `

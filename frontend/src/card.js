@@ -27,7 +27,6 @@ class Card{
       if (document.getElementById('div-holder')){
         document.getElementById('div-holder').innerHTML = ""
       }
-    // document.getElementById('deck-1').innerHTML = ""
     let div = document.createElement('div')
     let br = document.createElement('br')
     let button = document.createElement("button");
@@ -77,6 +76,27 @@ class Card{
     div.appendChild(img)
     div.appendChild(button)
     document.getElementById("image-holder").appendChild(div)
+  }
+
+  renderBelowDeck(){
+    let parent = document.getElementById('deck-1')
+    let div = document.createElement('div')
+    div.style = "width: 50%;"
+    div.id = `list-${this.id}`
+    div.class = "item"
+    let button = document.createElement('button')
+    button.innerText = "X"
+    button.id = `button-${this.id}`
+    button.dataset.id = `${this.id}`
+
+    let img = document.createElement('img')
+    img.src = this.imageUrl
+    // img.align = "middle"
+    img.width = 223
+    img.height = 311
+    div.appendChild(img)
+    div.appendChild(button)
+    parent.appendChild(div)
   }
 }
 

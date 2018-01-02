@@ -3,7 +3,7 @@ class Api::V1::CardsController < ApplicationController
   def index
     if params[:name]
       # @cards = Card.order(:name).page(params[:page]).select{|card| card.name.include?(params[:name])}
-        @cards = Kaminari.paginate_array(Card.all.select{|card| card.name.include?(params[:name])})
+        @cards = Kaminari.paginate_array(Card.all.select{|card| card.name.include?(params[:name].capitalize)})
       render json: @cards
       return
     elsif params[:types]
